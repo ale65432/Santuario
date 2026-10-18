@@ -24,6 +24,8 @@ if not defined REUSE (
   start "" /min "%SystemRoot%\System32\cmd.exe" /c ""%SANT%app\serve.bat"" <nul >nul 2>&1
   rem Agente 24/7 INTEGRADO: IA y agente son un solo programa. Arranca en segundo plano unos segundos despues (Ollama ya levantando)
   rem y termina solo cuando esta consola se cierra (comparte el PID de la consola).
+  rem una senal de salida vieja haria que el agente se cierre nada mas arrancar
+  if exist "%SANT%data\agent\QUIT" del "%SANT%data\agent\QUIT" >nul 2>&1
   set "SANT_INTEGRADO=1"
   start "Santuario Agente" /min "%SystemRoot%\System32\cmd.exe" /c ""%PING%" -n 9 127.0.0.1 >nul & "%SANT%Santuario-Agente.bat"" <nul >nul 2>&1
 )
