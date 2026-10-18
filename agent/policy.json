@@ -1,0 +1,76 @@
+{
+  "_comment": "Politica de Santuario (manos + agente 24/7). Solo el dueno edita este archivo; el modelo y el canal remoto no pueden cambiarla.",
+  "browser": {
+    "profile_mode": "host",
+    "_profile_mode": "host = perfil dedicado en el PC (sin sesiones en la USB) | usb = en data\\edge-profile (riesgo si se pierde la USB) | ephemeral = temporal, se borra al salir",
+    "close_edge_on_exit": true,
+    "navigate_allow": [
+      "google.com", "youtube.com", "music.youtube.com",
+      "facebook.com", "instagram.com", "x.com", "twitter.com", "tiktok.com", "linkedin.com", "reddit.com"
+    ],
+    "read_allow": [ "google.com", "youtube.com" ],
+    "max_read_chars": 3500,
+    "max_searches_per_minute": 4,
+    "max_actions_per_minute": 12
+  },
+  "sites": {
+    "google": "https://www.google.com/",
+    "youtube": "https://www.youtube.com/",
+    "youtube music": "https://music.youtube.com/",
+    "facebook": "https://www.facebook.com/",
+    "instagram": "https://www.instagram.com/",
+    "x": "https://x.com/",
+    "twitter": "https://x.com/",
+    "tiktok": "https://www.tiktok.com/",
+    "linkedin": "https://www.linkedin.com/",
+    "reddit": "https://www.reddit.com/"
+  },
+  "apps": {
+    "bloc de notas": "notepad.exe",
+    "calculadora": "calc.exe",
+    "explorador": "explorer.exe",
+    "paint": "mspaint.exe",
+    "administrador de tareas": "taskmgr.exe"
+  },
+  "confirm": {
+    "abrir_app": true,
+    "abrir_resultado_fuera_de_lista": true
+  },
+  "scheduler": {
+    "_comment": "Tareas programadas = ejecucion futura sin supervision. Lista cerrada de tipos; el modelo no las crea ni edita.",
+    "max_active": 10,
+    "max_text": 200,
+    "stale_min": 10,
+    "default_expiry_days": 30,
+    "max_expiry_days": 90,
+    "allow_local_actions": false,
+    "min_interval_min": { "recordatorio": 1, "pregunta": 30, "busqueda": 60, "accion": 60 },
+    "allowed_types": { "consola": [ "recordatorio", "pregunta", "busqueda" ], "remoto": [ "recordatorio", "busqueda" ] },
+    "remote_auto_approve": [ "recordatorio" ]
+  },
+  "remote": {
+    "_comment": "Canal remoto (Telegram): el dueno NO esta frente al PC. Solo herramientas de bajo riesgo. Abrir programas/sitios o reproducir audio NUNCA desde aqui.",
+    "telegram": {
+      "enabled": true,
+      "api_base": "https://api.telegram.org",
+      "poll_timeout_sec": 10,
+      "max_msg_chars": 500,
+      "max_reply_chars": 1500,
+      "rate_per_min": 6,
+      "rate_per_hour": 60,
+      "drop_older_than_sec": 120
+    },
+    "region": "general",
+    "model_timeout_sec": 120,
+    "history_msgs": 8,
+    "tools_ttl_hours": 8
+  },
+  "daemon": {
+    "keep_awake": true,
+    "log_keep_days": 14,
+    "log_max_kb": 2048,
+    "heartbeat_sec": 30,
+    "idle_poll_sec": 5,
+    "max_restarts_per_hour": 5
+  }
+}

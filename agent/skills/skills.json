@@ -1,0 +1,57 @@
+{
+  "_comment": "Configuracion de las habilidades del taller (leer/analizar/mejorar codigo, escaneos, paginas web). Solo el dueno edita este archivo. Solo se usan desde la CONSOLA local.",
+  "read_roots": [],
+  "_read_roots": "Carpetas con permiso de LECTURA permanente (rutas absolutas). Vacio = cada carpeta se concede por sesion, escribiendo un codigo.",
+  "workspace": "data\\workspace",
+  "_workspace": "Carpeta (relativa a la raiz de Santuario) donde se escriben informes, sitios generados y propuestas. Siempre permitida para escribir.",
+  "limits": {
+    "max_file_kb": 1024,
+    "max_files": 20000,
+    "max_depth": 12,
+    "max_total_mb": 400,
+    "time_budget_sec": 120,
+    "llm_chunk_chars": 2800,
+    "llm_max_files": 6
+  },
+  "refuse_roots": [ "C:\\", "C:\\Users" ],
+  "sensitive_dirs": [
+    ".ssh", ".aws", ".azure", ".gnupg", ".kube", ".docker", ".terraform", "credentials", "protect", "vault",
+    "appdata", "windows", "program files", "program files (x86)", "programdata", "system volume information", "$recycle.bin"
+  ],
+  "noise_dirs": [
+    ".git", "node_modules", ".venv", "venv", "__pycache__", "dist", "build", "bin", "obj", ".next", ".idea", ".vs", "target", "vendor", ".gradle", ".cache", "coverage"
+  ],
+  "sensitive_file_regex": [
+    "^\\.env($|\\.)",
+    "\\.env$",
+    "^id_(rsa|dsa|ecdsa|ed25519)",
+    "\\.(pem|pfx|p12|key|ppk|kdbx|keystore|jks|dpapi|ovpn|gpg|asc)$",
+    "^(credentials|secrets?)(\\..*)?$",
+    "^task\\.key$",
+    "^wallet\\.dat$",
+    "^(login data|cookies|web data|history|local state)(-journal)?$",
+    "^ntuser\\.dat",
+    "^(sam|system|security)$",
+    "^\\.(npmrc|pypirc|netrc|git-credentials|pgpass|htpasswd|bash_history|zsh_history)$",
+    "^_netrc$", "^known_hosts$", "\\.tfvars$", "^appsettings(\\..*)?\\.json$", "\\.rdp$", "^service-account.*\\.json$", "^client_secret.*\\.json$", "\\.keychain(-db)?$", "\\.p8$", "\\.crt$",
+    "\\.tfstate(\\.backup)?$"
+  ],
+  "sensitive_file_allow_regex": [ "^\\.env\\.(example|sample|template|dist)$" ],
+  "binary_ext": [
+    "exe", "dll", "sys", "bin", "obj", "o", "so", "dylib", "class", "jar", "war", "pyc", "pyd", "lib", "a",
+    "png", "jpg", "jpeg", "gif", "bmp", "ico", "webp", "tif", "tiff", "psd", "svgz",
+    "mp3", "wav", "ogg", "flac", "mp4", "mkv", "avi", "mov", "webm",
+    "zip", "7z", "rar", "gz", "tgz", "bz2", "xz", "iso", "cab", "msi",
+    "pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "woff", "woff2", "ttf", "otf", "eot",
+    "db", "sqlite", "sqlite3", "mdb", "gguf", "safetensors", "onnx", "pt", "pth", "ckpt", "lnk"
+  ],
+  "languages": {
+    "ps1": "powershell", "psm1": "powershell", "psd1": "powershell",
+    "js": "javascript", "mjs": "javascript", "cjs": "javascript", "jsx": "javascript",
+    "ts": "typescript", "tsx": "typescript",
+    "py": "python", "html": "html", "htm": "html", "css": "css", "json": "json",
+    "bat": "batch", "cmd": "batch", "sh": "shell", "sql": "sql", "yml": "yaml", "yaml": "yaml",
+    "php": "php", "java": "java", "cs": "csharp", "go": "go", "rs": "rust", "rb": "ruby", "c": "c", "cpp": "cpp", "h": "c",
+    "md": "markdown", "txt": "text", "xml": "xml", "ini": "ini", "toml": "toml", "dockerfile": "docker"
+  }
+}

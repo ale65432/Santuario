@@ -1,0 +1,28 @@
+# Datos privados y de ejecucion (historial de chat, tareas, avisos, claves de Ollama, informes, respaldos, sitios generados)
+/data/
+/logs/
+/Microsoft/
+/knowledge/
+/training/output/
+*.pid
+QUIT
+
+# Modelos y binarios de Ollama: pesan decenas de GB y se descargan con Instalar-Cerebro.bat
+/models/
+/app/ollama/
+/app/*.zip
+*.gguf
+
+# Ejecutable generado (se compila con Compilar.bat) y boveda cifrada
+/Santuario.exe
+/Santuario.vault*
+/.abierto
+
+# Respaldos y temporales
+*.bak
+*.tmp
+*.prev
+*.backup*
+*.Modelfile.bak
+Thumbs.db
+desktop.ini

@@ -1,0 +1,23 @@
+{
+  "_nota": "Solo fuentes instaladas en el sistema; nada se descarga. Cada pila termina en una familia generica.",
+  "tipografias": {
+    "editorial": {
+      "descripcion": "Titulares serif de transicion (lectura, restaurantes, portafolio, articulo) + cuerpo sans de sistema",
+      "font-head": "Charter, \"Iowan Old Style\", \"Palatino Linotype\", Palatino, \"Book Antiqua\", Georgia, serif",
+      "font-body": "system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+      "head-weight": 700
+    },
+    "tecnico": {
+      "descripcion": "Titulares condensados/industriales (servicios, eventos, tecnologia) + cuerpo sans de sistema",
+      "font-head": "Bahnschrift, \"DIN Alternate\", \"Franklin Gothic Medium\", \"Segoe UI Semibold\", \"Helvetica Neue\", Arial, sans-serif",
+      "font-body": "system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+      "head-weight": 700
+    },
+    "humanista": {
+      "descripcion": "Sans humanista calido de punta a punta (negocio local, cafeteria, bienestar)",
+      "font-head": "Optima, Candara, \"Gill Sans\", \"Gill Sans MT\", \"Segoe UI\", system-ui, sans-serif",
+      "font-body": "Seravek, \"Gill Sans Nova\", Calibri, \"Segoe UI\", system-ui, sans-serif",
+      "head-weight": 700
+    }
+  }
+}

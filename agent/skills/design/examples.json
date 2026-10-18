@@ -1,0 +1,88 @@
+{
+  "landing": {
+    "tipo_sitio": "landing",
+    "idioma": "es",
+    "titulo": "Ordena Tu Casa",
+    "descripcion": "Servicio de organizacion del hogar: planes mensuales, visitas a domicilio y rutinas claras para vivir con menos desorden.",
+    "paleta": "oceano",
+    "tipografia": "tecnico",
+    "secciones": [
+      {"tipo":"hero","titulo":"Un hogar en orden, sin esfuerzo","texto":"Organizamos tus espacios en una visita y te dejamos un sistema simple para mantenerlos.","detalle":"Organizacion del hogar","boton_texto":"Pedir una visita","boton_enlace":"#s5","items":[]},
+      {"tipo":"caracteristicas","titulo":"Como trabajamos","texto":"","detalle":"","boton_texto":"","boton_enlace":"","items":[
+        {"titulo":"Diagnostico gratuito","texto":"Revisamos tus espacios y acordamos prioridades.","detalle":""},
+        {"titulo":"Visita de orden","texto":"Dos personas ordenan contigo en una jornada.","detalle":""},
+        {"titulo":"Sistema que dura","texto":"Etiquetas y rutinas de diez minutos al dia.","detalle":""}
+      ]},
+      {"tipo":"precios","titulo":"Planes","texto":"Sin permanencia. Cancelas cuando quieras.","detalle":"","boton_texto":"","boton_enlace":"","items":[
+        {"titulo":"Una habitacion","texto":"Una jornada de hasta 4 horas.","detalle":"$900"},
+        {"titulo":"Casa completa","texto":"Dos jornadas y seguimiento por un mes.","detalle":"$2,400"},
+        {"titulo":"Mantenimiento","texto":"Una visita al mes para ajustar el sistema.","detalle":"$600 al mes"}
+      ]},
+      {"tipo":"testimonios","titulo":"Lo que dicen","texto":"","detalle":"","boton_texto":"","boton_enlace":"","items":[
+        {"titulo":"Por fin encuentro todo en la cocina en segundos.","texto":"","detalle":"Marta R."},
+        {"titulo":"Llegaron un sabado y el lunes ya vivia distinto.","texto":"","detalle":"Luis G."}
+      ]},
+      {"tipo":"contacto","titulo":"Hablemos","texto":"Respondemos en menos de un dia habil.","detalle":"","boton_texto":"","boton_enlace":"","items":[]}
+    ],
+    "contacto": {"email":"hola@ordenatucasa.example","telefono":"+52 55 5555 0101","direccion":"","como_llegar":"Atendemos a domicilio en toda la ciudad."},
+    "redes": [{"nombre":"Instagram","url":"https://instagram.com/ordenatucasa"}],
+    "pie": "Ordena Tu Casa. Todos los derechos reservados."
+  },
+  "menu": {
+    "tipo_sitio": "menu",
+    "idioma": "es",
+    "titulo": "Cafe La Esquina",
+    "descripcion": "Carta de Cafe La Esquina: cafes de especialidad, panaderia del dia y desayunos. Abierto todos los dias.",
+    "paleta": "vino",
+    "tipografia": "editorial",
+    "secciones": [
+      {"tipo":"hero","titulo":"Cafe y pan, hechos hoy","texto":"Tostamos cada semana y horneamos cada manana.","detalle":"Carta","boton_texto":"","boton_enlace":"","items":[]},
+      {"tipo":"precios","titulo":"Cafes","texto":"","detalle":"","boton_texto":"","boton_enlace":"","items":[
+        {"titulo":"Espresso","texto":"Doble, grano de Chiapas.","detalle":"$38"},
+        {"titulo":"Flat white","texto":"Leche entera o de avena.","detalle":"$58"},
+        {"titulo":"Filtrado del dia","texto":"Pregunta por el origen.","detalle":"$52"}
+      ]},
+      {"tipo":"precios","titulo":"Panaderia","texto":"","detalle":"","boton_texto":"","boton_enlace":"","items":[
+        {"titulo":"Croissant de mantequilla","texto":"","detalle":"$45"},
+        {"titulo":"Pan de elote","texto":"Con crema de la casa.","detalle":"$48"}
+      ]},
+      {"tipo":"horarios","titulo":"Horario","texto":"","detalle":"","boton_texto":"","boton_enlace":"","items":[
+        {"titulo":"Lunes a viernes","texto":"","detalle":"7:30 - 19:00"},
+        {"titulo":"Sabado y domingo","texto":"","detalle":"8:30 - 17:00"}
+      ]},
+      {"tipo":"contacto","titulo":"Visitanos","texto":"","detalle":"","boton_texto":"","boton_enlace":"","items":[]}
+    ],
+    "contacto": {"email":"","telefono":"+52 55 5555 0202","direccion":"Calle Alamo 14, Col. Centro","como_llegar":"A una cuadra de la plaza, junto a la libreria."},
+    "redes": [],
+    "pie": "Cafe La Esquina. Precios en pesos mexicanos, IVA incluido."
+  },
+  "negocio": {
+    "tipo_sitio": "negocio",
+    "idioma": "es",
+    "titulo": "Taller Mecanico Ramos",
+    "descripcion": "Taller mecanico familiar: afinacion, frenos y diagnostico. Horarios, precios de referencia y como llegar.",
+    "paleta": "grafito",
+    "tipografia": "tecnico",
+    "secciones": [
+      {"tipo":"hero","titulo":"Tu auto en manos de confianza","texto":"Presupuesto por escrito antes de tocar el motor.","detalle":"Desde 1998","boton_texto":"Llamar ahora","boton_enlace":"tel:+525555550303","items":[]},
+      {"tipo":"caracteristicas","titulo":"Servicios","texto":"","detalle":"","boton_texto":"","boton_enlace":"","items":[
+        {"titulo":"Afinacion","texto":"Bujias, filtros y aceite.","detalle":""},
+        {"titulo":"Frenos","texto":"Revision y cambio de balatas.","detalle":""},
+        {"titulo":"Diagnostico","texto":"Lectura de fallas con escaner.","detalle":""}
+      ]},
+      {"tipo":"precios","titulo":"Precios de referencia","texto":"Mano de obra; refacciones aparte.","detalle":"","boton_texto":"","boton_enlace":"","items":[
+        {"titulo":"Afinacion basica","texto":"","detalle":"desde $650"},
+        {"titulo":"Cambio de balatas","texto":"Por eje.","detalle":"desde $480"}
+      ]},
+      {"tipo":"horarios","titulo":"Horario","texto":"","detalle":"","boton_texto":"","boton_enlace":"","items":[
+        {"titulo":"Lunes a viernes","texto":"","detalle":"8:00 - 18:00"},
+        {"titulo":"Sabado","texto":"","detalle":"8:00 - 14:00"},
+        {"titulo":"Domingo","texto":"","detalle":"Cerrado"}
+      ]},
+      {"tipo":"contacto","titulo":"Donde estamos","texto":"","detalle":"","boton_texto":"","boton_enlace":"","items":[]}
+    ],
+    "contacto": {"email":"contacto@tallerramos.example","telefono":"+52 55 5555 0303","direccion":"Av. Industria 220, Col. Obrera","como_llegar":"Frente a la gasolinera, porton azul."},
+    "redes": [{"nombre":"Facebook","url":"https://facebook.com/tallerramos"}],
+    "pie": "Taller Mecanico Ramos."
+  }
+}

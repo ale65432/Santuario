@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SantuarioSiteSpec",
+  "description": "Todos los campos son obligatorios; usar \"\" o [] cuando no aplique. Pensado para salida estructurada de Ollama (format=schema). El generador debe revalidar y recortar: la gramatica no garantiza maxLength/pattern.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["tipo_sitio","idioma","titulo","descripcion","paleta","tipografia","secciones","contacto","redes","pie"],
+  "properties": {
+    "tipo_sitio": {"type":"string","enum":["landing","portafolio","menu","evento","negocio","articulo","proximamente"]},
+    "idioma": {"type":"string","enum":["es","en","fr","pt","de","it"]},
+    "titulo": {"type":"string","minLength":3,"maxLength":60,"description":"Nombre del sitio; va en <title> y en la marca del header"},
+    "descripcion": {"type":"string","minLength":20,"maxLength":160,"description":"meta description"},
+    "paleta": {"type":"string","enum":["oceano","bosque","atardecer","grafito","rosa-suave","tinta-dorada","menta","vino"]},
+    "tipografia": {"type":"string","enum":["editorial","tecnico","humanista"]},
+    "secciones": {
+      "type":"array","minItems":1,"maxItems":8,
+      "items": {
+        "type":"object","additionalProperties":false,
+        "required":["tipo","titulo","texto","detalle","boton_texto","boton_enlace","items"],
+        "properties": {
+          "tipo": {"type":"string","enum":["hero","caracteristicas","tarjetas","precios","testimonios","horarios","contacto","texto"]},
+          "titulo": {"type":"string","maxLength":60,"description":"hero: H1. Resto: H2 y etiqueta del menu"},
+          "texto": {"type":"string","maxLength":1500,"description":"hero: subtitulo. texto: parrafos separados por linea en blanco (\\n\\n). Otros: introduccion"},
+          "detalle": {"type":"string","maxLength":60,"description":"hero: etiqueta superior (fecha, categoria, byline)"},
+          "boton_texto": {"type":"string","maxLength":30},
+          "boton_enlace": {"type":"string","maxLength":200,"pattern":"^$|^(https://[^\\s\"'<>]+|#[a-z0-9-]+|mailto:[^\\s\"'<>]+|tel:\\+?[0-9]{6,15})$"},
+          "items": {
+            "type":"array","maxItems":12,
+            "items": {
+              "type":"object","additionalProperties":false,
+              "required":["titulo","texto","detalle"],
+              "properties": {
+                "titulo": {"type":"string","minLength":1,"maxLength":60,"description":"caracteristica/tarjeta: nombre. precios: plan o plato. testimonios: la cita. horarios: dia(s)"},
+                "texto": {"type":"string","maxLength":240,"description":"descripcion; testimonios: vacio"},
+                "detalle": {"type":"string","maxLength":40,"description":"precios: importe. testimonios: autor. horarios: horas. tarjetas: etiqueta corta"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "contacto": {
+      "type":"object","additionalProperties":false,
+      "required":["email","telefono","direccion","como_llegar"],
+      "properties": {
+        "email": {"type":"string","maxLength":80,"pattern":"^$|^[^\\s@<>\"']+@[^\\s@<>\"']+\\.[A-Za-z]{2,}$"},
+        "telefono": {"type":"string","maxLength":24,"pattern":"^$|^\\+?[0-9 ()-]{6,24}$"},
+        "direccion": {"type":"string","maxLength":120},
+        "como_llegar": {"type":"string","maxLength":200,"description":"ubicacion como texto, sin mapa embebido"}
+      }
+    },
+    "redes": {
+      "type":"array","maxItems":6,
+      "items": {
+        "type":"object","additionalProperties":false,"required":["nombre","url"],
+        "properties": {
+          "nombre": {"type":"string","minLength":2,"maxLength":24},
+          "url": {"type":"string","maxLength":200,"pattern":"^https://[^\\s\"'<>]{4,}$"}
+        }
+      }
+    },
+    "pie": {"type":"string","maxLength":160}
+  },
+  "x-reglas-generador": {
+    "secciones_permitidas_por_tipo": {
+      "landing": ["hero","caracteristicas","tarjetas","precios","testimonios","contacto","texto"],
+      "portafolio": ["hero","texto","tarjetas","caracteristicas","testimonios","contacto"],
+      "menu": ["hero","precios","texto","horarios","contacto"],
+      "evento": ["hero","texto","horarios","tarjetas","precios","contacto"],
+      "negocio": ["hero","caracteristicas","precios","horarios","testimonios","contacto"],
+      "articulo": ["hero","texto"],
+      "proximamente": ["hero","contacto"]
+    },
+    "reglas": [
+      "Exactamente una seccion hero y debe ser la primera; si falta, el generador crea una desde titulo/descripcion.",
+      "Seccion no permitida para el tipo -> se descarta y se registra aviso. Seccion sin contenido (sin titulo, texto ni items) -> se descarta.",
+      "tipo_sitio=menu: tipo precios se renderiza como ul.menu (nombre ..... precio); en otros tipos, como tarjetas de precio ul.prices.",
+      "Las secciones reciben id s1..sN; el menu del header lista hasta 6 secciones no-hero con titulo (texto recortado a 24 caracteres).",
+      "tipo contacto renderiza el objeto contacto (vacio -> se omite) y enlaces mailto:/tel: generados por el generador, no por el modelo.",
+      "Todo texto se escapa (& < > \" ') y se normaliza (sin caracteres de control; \\n\\n -> parrafos). Ningun campo se inserta como HTML.",
+      "boton_texto vacio -> sin boton. Enlace '#id' debe existir en el documento, si no se descarta el boton.",
+      "tipo=hero: titulo vacio -> usar titulo del sitio. Siempre hay exactamente un h1.",
+      "Paleta/tipografia fuera del enum -> valores por defecto: oceano / humanista."
+    ]
+  }
+}

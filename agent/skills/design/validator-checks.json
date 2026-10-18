@@ -1,0 +1,48 @@
+{
+  "_nota": "Checks automatizables sobre index.html/styles.css/script.js generados. severity: error bloquea; warn solo informa.",
+  "contraste_algoritmo": "canal=c/255; lin = c<=0.04045 ? c/12.92 : ((c+0.055)/1.055)^2.4; L=0.2126R+0.7152G+0.0722B; ratio=(Lmax+0.05)/(Lmin+0.05). Umbral 4.5 (texto) y 3.0 (componentes/foco).",
+  "html": [
+    {"id":"H01","severity":"error","regla":"<html lang> presente y igual a spec.idioma"},
+    {"id":"H02","severity":"error","regla":"<meta charset=\"utf-8\"> dentro de los primeros 1024 bytes; <!doctype html> al inicio"},
+    {"id":"H03","severity":"error","regla":"<title> no vacio, 3-60 caracteres, igual a spec.titulo"},
+    {"id":"H04","severity":"error","regla":"<meta name=viewport content=\"width=device-width, initial-scale=1\"> (sin user-scalable=no ni maximum-scale<5)"},
+    {"id":"H05","severity":"error","regla":"<meta name=description> de 20-160 caracteres"},
+    {"id":"H06","severity":"error","regla":"exactamente un <h1>"},
+    {"id":"H07","severity":"error","regla":"jerarquia de encabezados sin saltos hacia abajo (h1->h2->h3, nunca h1->h3)"},
+    {"id":"H08","severity":"error","regla":"landmarks: exactamente un <header>, un <nav>, un <main id=main>, un <footer>; enlace .skip a #main como primer elemento focusable"},
+    {"id":"H09","severity":"error","regla":"toda <img> tiene alt (vacio solo si decorativa con aria-hidden/role=presentation); si hay <img> sin width/height -> warn"},
+    {"id":"H10","severity":"error","regla":"todo <a> tiene texto accesible no vacio (texto, aria-label o aria-labelledby); textos genericos 'aqui'/'click aqui'/'leer mas' solos -> warn"},
+    {"id":"H11","severity":"error","regla":"ningun href/src/action empieza por http:// ni // ; solo se permiten https:, mailto:, tel:, #id y rutas relativas"},
+    {"id":"H12","severity":"error","regla":"todo <a target=\"_blank\"> lleva rel con noopener y noreferrer (el generador abre redes externas con target=_blank)"},
+    {"id":"H13","severity":"error","regla":"<meta http-equiv=Content-Security-Policy> presente con default-src 'none'; style-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; script-src 'self' solo si existe script.js, si no 'none'"},
+    {"id":"H14","severity":"error","regla":"sin <style>, atributos style=, atributos on*= ni javascript: (compatibles con la CSP)"},
+    {"id":"H15","severity":"error","regla":"sin recursos externos: ningun <link>, <script>, <img>, <iframe>, <form> con URL absoluta; <link rel=stylesheet href=styles.css> unico"},
+    {"id":"H16","severity":"error","regla":"ids unicos; todo href=#x apunta a un id existente"},
+    {"id":"H17","severity":"error","regla":"el contenido del spec aparece escapado: ningun '<' ni '>' del texto fuente en el DOM como etiqueta; prueba con '<script>alert(1)</script>' en cada campo -> 0 elementos script nuevos"},
+    {"id":"H18","severity":"warn","regla":"<meta name=referrer content=no-referrer> y <meta name=color-scheme content=\"light dark\">"},
+    {"id":"H19","severity":"warn","regla":"orden de lectura = orden visual; sin tabindex > 0"},
+    {"id":"H20","severity":"warn","regla":"HTML total < 50 KB; sin texto en mayusculas continuo (se hace con CSS text-transform)"}
+  ],
+  "css": [
+    {"id":"C01","severity":"error","regla":"para las 8 paletas x {claro,oscuro}: texto/bg, texto/surface, accent/bg, accent/surface, on-accent/accent >= 4.5 (recalcular desde los hex emitidos en styles.css)"},
+    {"id":"C02","severity":"error","regla":"existe @media (prefers-color-scheme: dark) que redefine --bg,--surface,--text,--accent,--on-accent"},
+    {"id":"C03","severity":"error","regla":"existe :focus-visible con outline >= 2px (base: 3px solid var(--accent), offset 3px); nunca outline:none sin alternativa; accent/bg >= 3 (cubierto por C01)"},
+    {"id":"C04","severity":"error","regla":"--tap = 2.75rem (44px); .btn, .nav a, .contact a, .social a, .brand, .skip tienen min-block-size: var(--tap)"},
+    {"id":"C05","severity":"error","regla":"existe @media (prefers-reduced-motion: reduce) que anula animation/transition/scroll-behavior; transiciones solo dentro de (prefers-reduced-motion: no-preference)"},
+    {"id":"C06","severity":"error","regla":"sin @import, sin url() absolutos (http, //), sin @font-face remoto; fuentes solo de fonts.json"},
+    {"id":"C07","severity":"error","regla":"font-size del cuerpo >= 1rem (nunca px fijos para texto) y ningun texto < 0.875rem"},
+    {"id":"C08","severity":"error","regla":"sin overflow horizontal a 320px de ancho (scrollWidth <= clientWidth); contenido legible con zoom 200% (reflow, WCAG 1.4.10)"},
+    {"id":"C09","severity":"warn","regla":"line-height cuerpo >= 1.5; medida de .prose <= 75ch"},
+    {"id":"C10","severity":"warn","regla":"--accent-soft y --line solo en fondos/bordes decorativos; nunca como color de texto"},
+    {"id":"C11","severity":"warn","regla":"styles.css < 25 KB; un solo archivo CSS"}
+  ],
+  "js": [
+    {"id":"J01","severity":"error","regla":"script.js opcional; sin eval, Function(), innerHTML, document.write, fetch/XHR/WebSocket ni URLs externas"},
+    {"id":"J02","severity":"warn","regla":"la pagina funciona completa sin JS (script solo para mejoras como aria-current)"}
+  ],
+  "contenido": [
+    {"id":"S01","severity":"error","regla":"spec valida contra site-spec.schema.json y contra x-reglas-generador (secciones permitidas por tipo)"},
+    {"id":"S02","severity":"warn","regla":"URLs de redes: solo https; dominio visible como texto del enlace o nombre de red"},
+    {"id":"S03","severity":"warn","regla":"salida determinista: generar dos veces la misma spec produce archivos byte a byte iguales (sin fechas, GUID ni aleatorios; saltos de linea LF; UTF-8 sin BOM)"}
+  ]
+}

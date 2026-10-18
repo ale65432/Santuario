@@ -1,0 +1,38 @@
+{
+  "_nota": "Ratios calculados con la formula WCAG 2.x (luminancia relativa sRGB). Calculo manual (sin ejecutar codigo): tolerancia +-0.05. El validador DEBE recalcular. Requisito: texto/fondo, texto/superficie, acento/fondo, acento/superficie y acento_texto/acento >= 4.5 en claro y oscuro.",
+  "emision_css": "claro -> :root{--bg;--surface;--text;--accent;--on-accent}; oscuro -> @media (prefers-color-scheme:dark){:root{...}}",
+  "paletas": {
+    "oceano": {
+      "claro":  {"bg":"#f0f8f8","surface":"#ffffff","text":"#082030","accent":"#086080","on-accent":"#ffffff","ratios":{"texto_fondo":15.47,"texto_superficie":16.67,"acento_fondo":6.51,"acento_superficie":7.01,"acentotexto_acento":7.01}},
+      "oscuro": {"bg":"#081820","surface":"#102028","text":"#e8f0f8","accent":"#58c0d8","on-accent":"#081820","ratios":{"texto_fondo":15.71,"texto_superficie":14.49,"acento_fondo":8.56,"acento_superficie":7.90,"acentotexto_acento":8.56}}
+    },
+    "bosque": {
+      "claro":  {"bg":"#f0f8e8","surface":"#ffffff","text":"#102010","accent":"#286030","on-accent":"#ffffff","ratios":{"texto_fondo":15.61,"texto_superficie":16.99,"acento_fondo":6.88,"acento_superficie":7.48,"acentotexto_acento":7.48}},
+      "oscuro": {"bg":"#101810","surface":"#182018","text":"#e8f0e0","accent":"#90d078","on-accent":"#101810","ratios":{"texto_fondo":15.49,"texto_superficie":14.28,"acento_fondo":9.90,"acento_superficie":9.12,"acentotexto_acento":9.90}}
+    },
+    "atardecer": {
+      "claro":  {"bg":"#f0e8f8","surface":"#ffffff","text":"#201830","accent":"#a83810","on-accent":"#ffffff","ratios":{"texto_fondo":14.26,"texto_superficie":17.01,"acento_fondo":5.44,"acento_superficie":6.49,"acentotexto_acento":6.49}},
+      "oscuro": {"bg":"#181028","surface":"#282038","text":"#f0e8f0","accent":"#f89060","on-accent":"#181028","ratios":{"texto_fondo":15.31,"texto_superficie":12.93,"acento_fondo":8.00,"acento_superficie":6.76,"acentotexto_acento":8.00}}
+    },
+    "grafito": {
+      "claro":  {"bg":"#f0f0f0","surface":"#ffffff","text":"#181818","accent":"#b01830","on-accent":"#ffffff","ratios":{"texto_fondo":15.58,"texto_superficie":17.76,"acento_fondo":6.10,"acento_superficie":6.96,"acentotexto_acento":6.96}},
+      "oscuro": {"bg":"#101010","surface":"#202020","text":"#f0f0f0","accent":"#f87080","on-accent":"#101010","ratios":{"texto_fondo":16.70,"texto_superficie":14.30,"acento_fondo":6.91,"acento_superficie":5.91,"acentotexto_acento":6.91}}
+    },
+    "rosa-suave": {
+      "claro":  {"bg":"#f8e8f0","surface":"#ffffff","text":"#301828","accent":"#a02060","on-accent":"#ffffff","ratios":{"texto_fondo":13.83,"texto_superficie":16.32,"acento_fondo":6.20,"acento_superficie":7.32,"acentotexto_acento":7.32}},
+      "oscuro": {"bg":"#201018","surface":"#302028","text":"#f8e8f0","accent":"#f090b8","on-accent":"#201018","ratios":{"texto_fondo":15.49,"texto_superficie":13.06,"acento_fondo":8.17,"acento_superficie":6.89,"acentotexto_acento":8.17}}
+    },
+    "tinta-dorada": {
+      "claro":  {"bg":"#f0f0f8","surface":"#ffffff","text":"#101830","accent":"#785800","on-accent":"#ffffff","ratios":{"texto_fondo":15.50,"texto_superficie":17.57,"acento_fondo":5.80,"acento_superficie":6.57,"acentotexto_acento":6.57}},
+      "oscuro": {"bg":"#081028","surface":"#101838","text":"#f0f0f8","accent":"#e8b830","on-accent":"#081028","ratios":{"texto_fondo":16.61,"texto_superficie":15.31,"acento_fondo":10.16,"acento_superficie":9.37,"acentotexto_acento":10.16}}
+    },
+    "menta": {
+      "claro":  {"bg":"#e8f8f0","surface":"#ffffff","text":"#0c2018","accent":"#006858","on-accent":"#ffffff","ratios":{"texto_fondo":15.47,"texto_superficie":17.00,"acento_fondo":6.13,"acento_superficie":6.73,"acentotexto_acento":6.73}},
+      "oscuro": {"bg":"#0c1c18","surface":"#102820","text":"#e0f8f0","accent":"#60e0b8","on-accent":"#0c1c18","ratios":{"texto_fondo":15.78,"texto_superficie":14.00,"acento_fondo":10.76,"acento_superficie":9.55,"acentotexto_acento":10.76}}
+    },
+    "vino": {
+      "claro":  {"bg":"#f8f0f0","surface":"#ffffff","text":"#281018","accent":"#881838","on-accent":"#ffffff","ratios":{"texto_fondo":15.89,"texto_superficie":17.83,"acento_fondo":8.38,"acento_superficie":9.40,"acentotexto_acento":9.40}},
+      "oscuro": {"bg":"#180c10","surface":"#281820","text":"#f8e8e8","accent":"#f08898","on-accent":"#180c10","ratios":{"texto_fondo":16.11,"texto_superficie":14.26,"acento_fondo":7.90,"acento_superficie":6.99,"acentotexto_acento":7.90}}
+    }
+  }
+}
